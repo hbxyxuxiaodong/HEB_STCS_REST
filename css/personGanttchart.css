@@ -1,0 +1,120 @@
+/*#box.container{*/
+  /*width: 1465px;*/
+  /*min-height: 100px;*/
+  /*border: 2px solid #9A9A9A;*/
+/*}*/
+#box>.all>.header ul li{
+  float: left;
+  margin-right: 20px;
+  min-width: 150px;
+}
+.dutyCheckType_0{
+  background: #5CC052;
+  /*box-shadow: 2px 2px 5px #5DFC51;*/
+}
+.dutyCheckType_1{
+  background: #FCD72C;
+  /*box-shadow: 2px 2px 3px #FFAD5D;*/
+}
+.dutyCheckType_2{
+  background: #C0A052;
+  /*box-shadow: 2px 2px 3px #FFDF25;*/
+}
+.dutyCheckType_3{
+  background: #C05252;
+  /*box-shadow: 2px 2px 3px #EA3D4A;*/
+}
+.dutyCheckType_4{
+  background: #FC373C;
+  /*box-shadow: 2px 2px 3px #810911;*/
+}
+.dutyCheckType_5{
+  background: #97DDFA;
+  /*box-shadow: 2px 2px 3px #70DFFB;*/
+}
+.dutyCheckType_6{
+  background: #76C9EB;
+  /*box-shadow: 2px 2px 3px #248DA7;*/
+}
+.dutyCheckType_7{
+  background: #BBF7B5;
+  /*box-shadow: 2px 2px 3px #39AE2A;*/
+}
+#box .all ul li em{
+  display: inline-block;
+  width: 50px;
+  height: 15px;
+  vertical-align: middle;
+  /*box-shadow: 2px 2px 3px #D1D1D1;*/
+}
+#box .all ul li span{
+  vertical-align: middle;
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+}
+#box .all  button{
+  background: #FA782A;
+  border: 0;
+  display: block;
+  width:120px;
+  height: 28px;
+  border-radius: 5px;
+  color: #fefefe;
+}
+.left>ul>li>select{
+  width: 120px;
+}
+#box .all h2{
+  margin-right: 50px;
+  vertical-align: middle;
+}
+#box .all table{
+  width: 100%;
+}
+#box .all table td.tu em{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background:#169BD5;
+}
+/*#box .all table td{*/
+  /*height: 30px;*/
+/*}*/
+td.sjt{
+  width: 732px;
+}
+.container>.content>ul{
+  padding: 0 26px 0 20px;
+  height: 64px;
+  line-height: 64px;
+}
+.container>.content ul>li{
+  float:left;
+  height: 64px;
+  width: 33.3%;
+}
+#brigade,#policeId,#qwlb,#date{
+  width: 72%;
+  height: 34px;
+}
+.right>button{
+  width: 74px;
+  border: none;
+}
+#header{
+  margin:32px auto 23px auto;
+}
+.content{
+  background:#555
+}
+@media screen and (min-width:1025px){
+  .second li.right{
+    margin-left: -366px;
+  }
+}
+@media screen and (max-width:1024px){
+  .second li.right{
+   margin-left: -156px;
+ }
+}
