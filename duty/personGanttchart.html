@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>人员甘特图</title>
+  <link rel="stylesheet" href="../css/common.css"/>
+  <link rel="stylesheet" href="../css/personGanttchart.css"/>
+  <!--<link rel="stylesheet" href="../css/jquery-ui.css"/>-->
+</head>
+<body>
+<div id="main" class="clearfix" style="background:#F0F0F0">
+  <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/headname.png" class="left">
+  <div class="right" style="margin-top: 10px;margin-right: 20px;">
+    <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/user.png"><label id="lblUserId" style="width:100px;padding:10px;color: #333"></label>
+  </div>
+</div>
+<div style="height: 4px;background: #DDD">
+</div>
+<div class="container" id="header">
+  <h4>人员甘特图</h4>
+  <div class="content">
+    <ul class="first clearfix">
+      <li class="">
+        <span>机&nbsp;&nbsp;构</span>
+        <select id="brigade" style="padding-left: 15px">
+          <!--<option value="">动力大队</option>-->
+        </select>
+      </li>
+      <li>
+        <span>警员编号</span>
+        <input type="text" placeholder="请输入警员编号" id="policeId" style="padding-left: 15px"/>
+      </li>
+      <li style="text-align: right">
+        <span>勤务类别</span>
+        <select id="qwlb" style="padding-left: 15px">
+          <!--<option value="">缺勤</option>-->
+        </select>
+      </li>
+    </ul>
+    <ul class="second clearfix">
+      <li class="left">
+        <span>日&nbsp;&nbsp;期</span>
+        <input id="date" placeholder=" 请选择日期" readonly style="padding-left: 15px;"/>
+      </li>
+      <li></li>
+      <li class="right" style="text-align: right;">
+        <button>查询</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container" id="box">
+    <div class="all">
+    <!--  <div class="header clearfix">
+        <div class="left">
+          <ul class="clearfix">
+            <li>
+              <span>正常</span>&nbsp;<em class="dutyCheckType_0"></em>
+            </li>
+            <li>
+              <span>迟到</span>&nbsp;<em class="dutyCheckType_1"></em>
+            </li>
+            <li>
+              <span>早退</span>&nbsp;<em class="dutyCheckType_2"></em>
+            </li>
+            <li>
+              <span>离岗</span>&nbsp;<em class="dutyCheckType_3"></em>
+            </li>
+            <!--<li>-->
+              <!--<span>机&nbsp;&nbsp;构</span>-->
+              <!--<select id="brigade">-->
+                <!--&lt;!&ndash;<option value="">动力大队</option>&ndash;&gt;-->
+              <!--</select>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span>警员编号</span>-->
+              <!--<input type="text" placeholder="请输入警员编号" id="policeId"/>
+            </li>
+          </ul>
+          <ul class="clearfix">
+            <li>
+              <span>缺勤</span>&nbsp;<em class="dutyCheckType_4"></em>
+            </li>
+            <li>
+              <span>登记</span>&nbsp;<em class="dutyCheckType_5"></em>
+            </li>
+            <li>
+              <span>报备</span>&nbsp;<em class="dutyCheckType_6"></em>
+            </li>
+            <li>
+              <span>休息</span>&nbsp;<em class="dutyCheckType_7"></em>
+            </li>
+            <!--<li>-->
+              <!--<span>勤务类别</span>-->
+              <!--<select id="qwlb">-->
+                <!--&lt;!&ndash;<option value="">缺勤</option>&ndash;&gt;-->
+              <!--</select>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<span>日&nbsp;&nbsp;期</span>-->
+              <!--<input id="date" placeholder="请选择日期" readonly/>-->
+            <!--</li>
+          <!--</ul>-->
+        <!--</div>-->
+        <!--<button>查询</button>-->
+      <!--</div>
+-->
+      <table border="1" id="table">
+        <!--
+        <thead>
+          <tr>
+            <th>所属大队</th>
+            <th>所属中队</th>
+            <th>警员编号</th>
+            <th>警员姓名</th>
+            <th>时间图</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>哈西大队</td>
+            <td>一中队</td>
+            <td>201568</td>
+            <td>张三</td>
+            <td class="tu">
+              <em></em>
+              <em></em>
+              <em></em>
+              <em></em>
+              <em></em>
+            </td>
+          </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tr>
+        </tbody>
+        -->
+      </table>
+      <div id="page">
+        <ul>
+          <!--<li><a href="">首页</a></li>-->
+          <!--<li><a href="">上一页</a></li>-->
+          <!--<li><a href="">当前页</a></li>-->
+          <!--<li><a href="">下一页</a></li>-->
+          <!--<li><a href="">尾页</a></li>-->
+          <!--<li><span>共<b>4</b>页</span></li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="../js/jquery-1.7.2.js"></script>
+  <!--<script src="../js/jquery-ui.js"></script>-->
+  <script src="../js/jedate.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/personGanttchart.js"></script>
+</body>
+</html>

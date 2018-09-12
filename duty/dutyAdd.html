@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html xmlns:20px>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>排班管理</title>
+  <link rel="stylesheet" href="../css/common.css"/>
+  <link rel="stylesheet" href="../css/class_add.css"/>
+</head>
+<body>
+<div id="main" class="clearfix" style="background:#F0F0F0">
+  <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/headname.png" class="left">
+  <div class="right" style="margin-top: 10px;margin-right: 20px;">
+    <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/user.png"><label id="lblUserId" style="width:100px;padding:10px;color: #333;"></label>
+  </div>
+</div>
+<div style="height: 4px;background: #DDD"></div>
+<div id="header" style="margin-top: 32px;">
+  <div class="container" style="position: relative;margin-bottom: 20px";>
+    <h4 style="line-height: 32px;text-align:left;padding-left: 20px;background: #444">**大队勤务周报表</h4>
+    <button type="button" name="out_excel" onClick="AutomateExcel();"  class="notPrint" id="copyDiv">导出</button>
+    <button id="pbwc" style="background: #FF9933;">返回主页</button>
+    <button type="button" id="button" style="background: #FF6633;">添加排班</button>
+    <div id="top" style="height: 98px;background: #555">
+      <ul class="clearfix" style="padding-left: 20px;height: 100%;line-height: 98px;background: #555">
+        <li>
+          <span>所属大队</span>
+          <select id="brigade" style="vertical-align: middle">
+          </select>
+        </li>
+        <li style="width: 30%;">
+          <span>日期</span>
+          <!--<input id="date"  readonly placeholder="请选择周一对应日期" style="height: 34px;vertical-align: middle;width: 50%;color: #fafafa;padding-left: 5px">-->
+          <input class="datainp" id="date" type="text"  placeholder="请选择周一对应日期" style="height: 34px;vertical-align: middle;width: 50%;color: #fafafa;padding-left: 15px">
+          <input type="button"  value="确定" style=" background: #FA2A43;border:none;width: 65px;height:34px;color: #fbfbfb;border-radius: 5px;vertical-align: middle;margin-left: 0"/>
+        </li>
+        <!--<li class="active">-->
+       <!--</li>-->
+      </ul>
+    </div>
+  </div>
+  <div id="tableDiv">
+  <table border="1" class="bao" id="table">
+    <!--<thead>
+      <tr>
+        <th>所属班组</th>
+        <th>带队领导</th>
+        <th>岗位类别</th>
+        <th>岗位名称</th>
+        <th>时段类别</th>
+        <th>周一</th>
+        <th>周二</th>
+        <th>周三</th>
+        <th>周四</th>
+        <th>周五</th>
+        <th>周六</th>
+        <th>周日</th>
+        <th>操作</th>
+     </tr>
+    </thead>
+    -->
+    <!-- <tbody>
+      <tr>
+        <td>一中队</td>
+        <td>张三</td>
+        <td>固定岗</td>
+        <td>尚志-西五</td>
+        <td>固五</td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>编辑</td>
+      </tr>
+      <tr>
+        <td>一中队</td>
+        <td>张三</td>
+        <td>固定岗</td>
+        <td>尚志-西五</td>
+        <td>固五</td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>编辑</td>
+      </tr>
+      <tr>
+        <td>一中队</td>
+        <td>张三</td>
+        <td>固定岗</td>
+        <td>尚志-西五</td>
+        <td>固五</td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>固早:李四</li>
+            <li>固午:王五</li>
+            <li>固晌:赵六</li>
+            <li>固晚:冯七</li>
+            <li>固夜:刘八</li>
+          </ul>
+        </td>
+        <td>编辑</td>
+      </tr>
+    </tbody>-->
+  </table>
+  </div>
+</div>
+<div id="footer">
+  <div class="container">
+    <!--<h4>审批</h4>-->
+    <ul class="clearfix">
+      <li>
+        <span>审批意见</span>
+        <select id="spyj">
+          <option value="-1">请选择</option>
+          <option value="0">同意</option>
+          <option value="1">不同意</option>
+        </select>
+      </li>
+      <li>
+        <span>审批内容</span>
+        <textarea id="spnr" cols="30" rows="1"></textarea>
+      </li>
+      <li>
+        <span>下级审批人</span>
+        <select id="xjsp" style="width: 58%;">
+          <!--<option value="">-请选择-</option>-->
+          <!--<option value="">张三</option>-->
+          <!--<option value="">李四</option>-->
+        </select>
+      </li>
+      <li>
+        <button>提交</button>
+      </li>
+      <li style="text-align: right;padding-right: 26px;">
+        <button>确定</button>
+      </li>
+    </ul>
+      <table id="tabsp" border="1">
+        <!--
+        <thead>
+        <tr>
+          <th>审批类型</th>
+          <th>审批意见</th>
+          <th>审批内容</th>
+        </tr>
+        </thead>
+        -->
+       <!-- <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+        </tbody>
+        -->
+      </table>
+
+  </div>
+</div>
+<!--遮罩层1-->
+<div id="zzc"><!-- 半透明遮罩 -->
+  <div class="content">
+    <ul class="container">
+      <li>
+        <span>所属大队</span>
+        <select id="ssdd" >
+          <!--<option value="">动力大队</option>-->
+          <!--<option value="">南岗大队</option>-->
+        </select>
+      </li>
+      <li>
+        <span>所属班组</span>
+        <select id="ssbz" >
+          <!--<option value="">动力大队</option>-->
+          <!--<option value="">南岗大队</option>-->
+        </select>
+      </li>
+      <li>
+        <span>带队领导</span>
+        <select id="ddld" >
+          <!--<option value="">动力大队</option>-->
+          <!--<option value="">南岗大队</option>-->
+        </select>
+      </li>
+      <li>
+        <span>岗位类别</span>
+        <select id="gwlb">
+          <!--<option value="">动力大队</option>-->
+          <!--<option value="">南岗大队</option>-->
+        </select>
+      </li>
+      <li>
+        <span>岗位名称</span>
+        <select id="gwmc">
+          <!--<option value="">动力大队</option>-->
+          <!--<option value="">南岗大队</option>-->
+        </select>
+      </li>
+      <li style="margin-right: 59px">
+        <span>时段类型</span>
+        <select id="sdlx">
+          <!--<option value="0">请选择</option>-->
+          <!--<option value="1">固早</option>-->
+          <!--<option value="2">固午</option>-->
+          <!--<option value="3">固晌</option>-->
+          <!--<option value="4">固晚</option>-->
+          <!--<option value="5">固夜</option>-->
+        </select>
+      </li>
+      <li>
+        <button>确定</button>
+      </li>
+    </ul>
+    <button class="end">&times</button>
+    <table border="1" id="tabpb">
+      <!-- <thead>
+        <tr>
+          <th></th>
+          <th>周一</th>
+          <th>周二</th>
+          <th>周三</th>
+          <th>周四</th>
+          <th>周五</th>
+          <th>周六</th>
+          <th>周日</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      -->
+    </table>
+    <div class="bot" style="text-align: center">
+      <button style="background:#fa2a43;margin-right: 160px;margin-left: 158px">提交</button>
+      <button style="background: #a3a0a0">重置</button>
+    </div>
+  </div>
+</div>
+<!--遮罩层2-->
+<div id="zzc2">
+  <div class="content2 clearfix">
+    <button class="end">&times;</button>
+    <h2 style="margin-top: 26px;margin-bottom: 26px">**班组资源</h2>
+    <dl style="text-align: center">
+      <dd style="width: 190px;">警员</dd>
+      <dd style="width: 190px;">辅警</dd>
+      <dd style="width: 154px;">警车</dd>
+      <dd style="width: 120px;background: #444">操作</dd>
+    </dl>
+    <div id="xinxi" class="clearfix">
+      <!--<ul class="clearfix one">-->
+      <!--<li>-->
+      <!--<input type="checkbox" checked id="ls"/><label for="ls">李四</label>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<input type="checkbox" id="zl"/><label for="zl">赵六</label>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<input type="checkbox" id="xlc2"/><label for="xlc2">**班组巡逻车2</label>-->
+      <!--</li>-->
+      <!--<li><input type="checkbox" id="unsel"/><label for="unsel">全不选</label></li>-->
+      <!--</ul>-->
+      <!--<ul class="clearfix">-->
+      <!--<li>-->
+      <!--<input type="checkbox" id="zs"/><label for="zs">张三</label>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<input type="checkbox" id="ww"/><label for="ww">王五</label>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<input type="checkbox" id="xlc1"/><label for="xlc1">**班组巡逻车1</label>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <div id="jy" class="left clearfix">
+        <ul class="one left">
+
+        </ul>
+        <ul class="two left">
+
+        </ul>
+      </div>
+      <div id="fj" class="left">
+        <ul class="one left">
+
+        </ul>
+        <ul class="two left">
+
+        </ul>
+      </div>
+      <div id="car" class="left">
+
+        <ul class="one left">
+
+        </ul>
+      </div>
+      <div id="opt" class="left">
+        <ul class="one left">
+          <li><input type="checkbox" id="unsel"/><label for="unsel">全不选</label></li>
+        </ul>
+      </div>
+    </div>
+    <div id="bot">
+      <button class="ok">确定</button>
+      <button class="reset">重置</button>
+    </div>
+  </div>
+</div>
+<script src="../js/jquery-1.7.2.js"></script>
+<!--<script src="../js/jquery-ui.js"></script>-->
+<script src="../js/jedate.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/jquery.zclip.js"></script>
+<script>
+  //  $('#date').datepicker({
+  //    dateFormat:'yy-mm-dd'
+  //  })
+  jeDate({
+    dateCell:"#date",
+    format:"YYYY-MM-DD",
+    isinitVal:true
+//  isTime:true, //isClear:false,
+//    minDate:"2014-09-19 00:00:00"
+
+  })
+</script>
+<script src="../js/classaddnew.js"></script>
+<SCRIPT LANGUAGE="javascript">
+  function AutomateExcel() {
+    var elTable = document.getElementById("table"); //table1改成你的tableID
+    var oRangeRef = document.body.createTextRange();
+    oRangeRef.moveToElementText(elTable);
+    oRangeRef.execCommand("Copy");
+    try {
+      var appExcel = new ActiveXObject("Excel.Application");
+    } catch (e) {
+      alert("无法调用Office对象，请确保您的机器已安装了Office并已将本系统的站点名加入到IE的信任站点列表中！");
+      return;
+    }
+    appExcel.Visible = true;
+    appExcel.Workbooks.Add().Worksheets.Item(1).Paste();
+    appExcel = null;
+  }
+</SCRIPT>
+<script>
+  $('#copyDiv').zclip({
+    path: "ZeroClipboard.swf",
+    copy: function(){
+      console.log($('#tableDiv').html())
+      return $('#tableDiv').html();
+    },
+    afterCopy: function () {
+//      alert("已成功复制！");
+      console.log('aftercopy')
+      $.Dialog({
+        message:'已成功复制!',
+        delay:1500
+      })
+    }
+  });
+</script>
+<script>
+  $.Dialog({
+    message:'已成功复制!',
+    delay:1500
+  })
+  $.Dialog({
+    type:'warning',
+    message:'选择日期不能小于当前日期且选择周一对应的日期',
+    button:[
+      {
+      type:'green',
+      text:'我知道了'
+    },
+      {
+      type:'red',
+      text:'讨厌'
+    }
+    ]
+  })
+</script>
+</body>
+</html>

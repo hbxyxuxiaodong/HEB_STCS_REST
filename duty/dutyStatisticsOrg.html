@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>出勤考核统计</title>
+  <link rel="stylesheet" href="../css/common.css"/>
+  <link rel="stylesheet" href="../css/dutyStatisticsOrg.css"/>
+</head>
+<body>
+<div id="main" class="clearfix" style="background:#F0F0F0">
+  <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/headname.png" class="left">
+  <div class="right" style="margin-top: 10px;margin-right: 20px;">
+    <img src="http://172.17.2.73:8080/HEB_CCTV_HTML5/image/user.png"><label id="lblUserId" style="width:100px;padding:10px;color: #333"></label>
+  </div>
+</div>
+<div style="height: 4px;background: #DDD">
+</div>
+  <div class="container" id="top">
+    <h4>出勤考核统计</h4>
+    <ul style="padding-left: 20px;padding-right: 26px;background: #555;height: 98px;line-height: 98px" class="clearfix">
+      <li>
+        <span>勤务类别</span>
+        <select  id="dutyTypeId">
+
+        </select>
+      </li>
+      <li>
+        <span>统计类别</span>
+        <select id="tjlb">
+          <option value="-1"> 请选择 </option>
+          <option value="0">时长</option>
+          <option value="1">次数</option>
+        </select>
+      </li>
+      <li>
+        <span>日期</span>
+        <select id="year" style="width: 35%;">
+          <!--<option value="">2017</option>-->
+          <!--<option value="">2016</option>-->
+          <!--<option value="">2015</option>-->
+        </select>
+        <select id="month" style="width: 35%;">
+          <!--<option value="01">01</option>-->
+          <!--<option value="02">02</option>-->
+          <!--<option value="03">03</option>-->
+          <!--<option value="04">04</option>-->
+          <!--<option value="05">05</option>-->
+          <!--<option value="06">06</option>-->
+          <!--<option value="07">07</option>-->
+          <!--<option value="08">08</option>-->
+          <!--<option value="09">09</option>-->
+          <!--<option value="10">10</option>-->
+          <!--<option value="11">11</option>-->
+          <!--<option value="12">12</option>-->
+        </select>
+      </li>
+      <li style="text-align: right">
+        <button style="background: #FF6633;">统计</button>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="clearfix" style="margin-bottom: 50px;border-bottom: 1px solid #797979;height: 584px">
+      <div id="brigade" style="width: 50%;height: 100%;background: #333" class="left"></div>
+      <div id="lochus"  style="width: 50%;height: 100%;background: #333" class="right"></div>
+    </div>
+    <div id="export">
+      <button onclick="AutomateExcel()" name="out_excel" id="copyDiv" class="notPrint">导出</button>
+    </div>
+    <div id="tableDIV">
+      <table border="1" id="table">
+        <caption>详情</caption>
+      </table>
+    </div>
+  </div>
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/jquery.zclip.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/highcharts.js"></script>
+<script src="../js/dutyStatisticsOrg.js"></script>
+<SCRIPT LANGUAGE="javascript">
+  function AutomateExcel() {
+    var elTable = document.getElementById("table"); //table1改成你的tableID
+    var oRangeRef = document.body.createTextRange();
+    oRangeRef.moveToElementText(elTable);
+    oRangeRef.execCommand("Copy");
+    try {
+      var appExcel = new ActiveXObject("Excel.Application");
+    } catch (e) {
+      alert("无法调用Office对象，请确保您的机器已安装了Office并已将本系统的站点名加入到IE的信任站点列表中！");
+      return;
+    }
+    appExcel.Visible = true;
+    appExcel.Workbooks.Add().Worksheets.Item(1).Paste();
+    appExcel = null;
+  }
+</SCRIPT>
+<script>
+  $('#copyDiv').zclip({
+    path: "ZeroClipboard.swf",
+    copy: function(){
+      console.log($('#tableDIV').html())
+      return $('#tableDIV').html();
+    },
+    afterCopy: function () {
+//      alert("已成功复制！");
+      console.log('aftercopy')
+//      $.Dialog({
+//        message:'已成功复制!',
+//        delay:1500
+//      })
+    }
+  });
+</script>
+
+</body>
+</html>

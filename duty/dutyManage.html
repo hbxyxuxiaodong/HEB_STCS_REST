@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排班管理</title>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="../css/common.css"/>
+</head>
+<body>
+<div id="main" class="clearfix" style="background:#F0F0F0">
+    <img src="http://172.17.30.73:8080/HEB_CCTV_HTML5/image/headname.png" class="left">
+    <div class="right" style="margin-top: 10px;margin-right: 20px;">
+        <img src="http://172.17.30.73:8080/HEB_CCTV_HTML5/image/user.png"><label id="lblUserId" style="width:100px;padding:10px;color: #333;"></label>
+    </div>
+</div>
+<div style="height: 4px;background: #DDD">
+</div>
+<div id="top" class="container" style="margin-top: 32px;margin-bottom: 42px">
+    <h4>大队排班管理</h4>
+    <ul style="width: 100%;background: #555;height: 98px;line-height:98px;padding-left:20px">
+            <li class="dadui" >
+                <span>所属大队</span>
+                <select id="ssdd">
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                </select>
+            </li>
+            <li>
+                <span>排班状态</span>
+                <select id="pbzt">
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                </select>
+            </li>
+            <li style="visibility:hidden">
+                <span>审批状态</span>
+                <select id="spzt">
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                    <!--<option value="">南岗大队</option>-->
+                </select>
+            </li>
+            <li style="text-align: right;margin-left: -26px;">
+                <button id="search" style="margin-right:52px ;background: #FF6633">搜索</button><a href="dutyAdd.html" style="background: #FFFFFF;color: #333;">添加</a>
+            </li>
+        </ul>
+</div>
+<div class="box">
+    <table id="table">
+      <!--
+          <thead>
+                <tr>
+                    <th>排班编号</th>
+                    <th>所属大队</th>
+                    <th>起始时间</th>
+                    <th>结束时间</th>
+                    <th>排班状态</th>
+                    <th>审批状态</th>
+                    <th>操作</th>
+                </tr>
+           </thead>
+       -->
+      <!--<tbody>
+            <tr>
+                <td>012589</td>
+                <td>动力大队</td>
+                <td>2017-02-27</td>
+                <td>2017-03-05</td>
+                <td>执行完毕</td>
+                <td>审批完成</td>
+                <td>查看</td>
+            </tr>
+            <tr>
+                <td>012589</td>
+                <td>动力大队</td>
+                <td>2017-02-27</td>
+                <td>2017-03-05</td>
+                <td>执行完毕</td>
+                <td>审批完成</td>
+                <td>查看</td>
+            </tr>
+            <tr>
+                <td>012589</td>
+                <td>动力大队</td>
+                <td>2017-02-27</td>
+                <td>2017-03-05</td>
+                <td>执行完毕</td>
+                <td>审批完成</td>
+                <td>查看</td>
+            </tr>
+            <tr>
+                <td>012589</td>
+                <td>动力大队</td>
+                <td>2017-02-27</td>
+                <td>2017-03-05</td>
+                <td>执行完毕</td>
+                <td>审批完成</td>
+                <td>查看</td>
+            </tr>
+        </tbody>-->
+    </table>
+    <div class="container" id="page">
+        <ul>
+            <!--<li><a href="">首页</a></li>-->
+            <!--<li><a href="">上一页</a></li>-->
+            <!--<li><a href="">当前页</a></li>-->
+            <!--<li><a href="">下一页</a></li>-->
+            <!--<li><a href="">尾页</a></li>-->
+            <!--<li><span>共<b></b>页</span></li>-->
+        </ul>
+    </div>
+</div>
+<!--<div id="diaLog">-->
+  <!--<div class="content">-->
+    <!--<button class="close">&times;</button>-->
+    <!--<div class="title">提示信息</div>-->
+    <!--<div id="msg">-->
+    <!--</div>-->
+    <!--<div class="opt">-->
+      <!--<button id="diaLogSure">确定</button>-->
+      <!--<button class="active" id="diaLogCancel">取消</button>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/dutyManage.js"></script>
+</body>
+</html>
